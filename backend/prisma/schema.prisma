@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  nome      String
+  email     String  @unique
+  senha     String
+  articles  Article[]  // Um usuário tem muitos artigos
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id        Int     @id @default(autoincrement())
+  nome      String  @unique
+  descricao String
+  articles  Article[]  // Uma categoria tem muitos artigos
+  createdAt DateTime @default(now())
+}
+
+model Tag {
+  id           Int           @id @default(autoincrement())
+  nome         String        @unique
+  articleTags  ArticleTag[]  // Uma tag tem muitos article_tags
+  createdAt    DateTime      @default(now())
+}
+
+model Article {
+  id             Int           @id @default(autoincrement())
+  titulo         String
+  conteudo       String
+  imagemCapa     String?       // O ? significa que é opcional
+  status         String        @default("rascunho")  // padrão: rascunho
+  visualizacoes  Int           @default(0)  // padrão: 0
+  autor          User          @relation(fields: [autorId], references: [id])
+  autorId        Int
+  categoria      Category      @relation(fields: [categoriaId], references: [id])
+  categoriaId    Int
+  articleTags    ArticleTag[]  // Um artigo tem muitas tags
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model ArticleTag {
+  id        Int     @id @default(autoincrement())
+  artigo    Article @relation(fields: [artigoId], references: [id])
+  artigoId  Int
+  tag       Tag     @relation(fields: [tagId], references: [id])
+  tagId     Int
+}
