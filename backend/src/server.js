@@ -5,14 +5,21 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Importar rotas
+const articleRoutes = require('./routes/articleRoutes');
+
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
+// Rota de teste
 app.get('/api/health', (req, res) => {
-  res.json({ message: 'Servidor local funcionando!' });
+  res.json({ message: 'Servidor rodando!' });
 });
 
-//Servidor local
+// Rotas da API
+app.use('/api', articleRoutes);
+
 app.listen(PORT, () => {
-  console.log(`Porta do servidor local ${PORT}`);
+  console.log(`✅ Servidor rodando na porta ${PORT}`);
 });
