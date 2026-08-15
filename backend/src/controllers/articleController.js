@@ -64,6 +64,7 @@ async function createArticle(req, res) {
 
         res.status(201).json(article);
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Erro ao criar artigo' });
     }
 }
@@ -114,4 +115,6 @@ module.exports = {
     getAllArticles, 
     getArticleById,
     createArticle,
-    updateArticle }
+    updateArticle,
+    deleteArticle
+};
