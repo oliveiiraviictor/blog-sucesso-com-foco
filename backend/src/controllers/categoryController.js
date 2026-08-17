@@ -29,7 +29,33 @@ async function getCategoryById(req, res) {
     }
 }
 
+async function createCategory(req, res) {
+    try {
+        const { nome, descricao } = req.body;
+
+        //Validar campos obrigatórios
+        if ( !nome || !descricao ) {
+            return res.status(400).json({ error: 'Campos obrigatórios faltando' });
+        }
+
+        const category = await prisma.category.create({
+            data: {
+                nome,
+                descricao
+            }
+        });
+
+        res.status(201).json(category);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Erro ao criar categoria' });
+    }
+
+    
+}
+
 module.exports = {
     getAllCategories,
-    getCategoryById
+    getCategoryById,
+    createCategory
 }
