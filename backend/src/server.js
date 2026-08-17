@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3001;
 
 // Importar rotas
 const articleRoutes = require('./routes/articleRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
 
 // Middlewares
 app.use(cors());
@@ -19,6 +20,7 @@ app.get('/api/health', (req, res) => {
 
 // Rotas da API
 app.use('/api', articleRoutes);
+app.use('/api', categoryRoutes);
 
 app.listen(PORT, () => {
   console.log(`✅ Servidor rodando na porta ${PORT}`);
