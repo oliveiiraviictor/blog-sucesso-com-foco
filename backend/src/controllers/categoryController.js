@@ -54,8 +54,29 @@ async function createCategory(req, res) {
     
 }
 
+async function updateCategory(req, res) {
+    try {
+        const { id } = req.params;
+        const { nome, descricao } = req.body;
+
+        const category = await prisma.category.update({
+            where: { id: parseInt(id) },
+            data: {
+                nome: nome || undefined,
+                descricao: descricao || undefined
+            }
+        });
+
+        res.status(200).json(category);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Erro ao atualizar categoria' });
+    }
+}
+
 module.exports = {
     getAllCategories,
     getCategoryById,
-    createCategory
+    createCategory,
+    updateCategory
 }
