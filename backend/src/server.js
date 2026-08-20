@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const userRoutes = require('./routes/userRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -21,6 +22,7 @@ app.get('/api/health', (req, res) => {
 // Rotas da API
 app.use('/api', articleRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api/users', userRoutes);
 
 app.listen(PORT, () => {
   console.log(`✅ Servidor rodando na porta ${PORT}`);
