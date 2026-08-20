@@ -5,7 +5,8 @@ const {
     getAllCategories,
     getCategoryById,
     createCategory,
-    updateCategory
+    updateCategory,
+    deleteCategory
 } = require('../controllers/categoryController');
 
 // Rota para obter todas as categorias
@@ -19,5 +20,8 @@ router.post('/categories', createCategory);
 
 // Rota para atualizar uma categoria existente
 router.put('/categories/:id', updateCategory);
+
+// Rota para deletar uma categoria existente
+router.delete('/categories/:id', deleteCategory);
 
 module.exports = router;

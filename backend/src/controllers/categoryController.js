@@ -74,9 +74,25 @@ async function updateCategory(req, res) {
     }
 }
 
+async function deleteCategory(req, res) {
+    try {
+        const { id } = req.params;
+
+        const category = await prisma.category.delete({
+            where: { id: parseInt(id) }
+        });
+
+        res.status(200).json({ message: 'Categoria foi excluida com sucesso', category });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Erro ao excluir categoria' });
+    }
+}
+
 module.exports = {
     getAllCategories,
     getCategoryById,
     createCategory,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }
