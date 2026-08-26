@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const {
     getAllCategories,
@@ -16,12 +17,12 @@ router.get('/categories', getAllCategories);
 router.get('/categories/:id', getCategoryById);
 
 // Rota para criar uma nova categoria
-router.post('/categories', createCategory);
+router.post('/categories', authMiddleware, createCategory);
 
 // Rota para atualizar uma categoria existente
-router.put('/categories/:id', updateCategory);
+router.put('/categories/:id', authMiddleware, updateCategory);
 
 // Rota para deletar uma categoria existente
-router.delete('/categories/:id', deleteCategory);
+router.delete('/categories/:id', authMiddleware, deleteCategory);
 
 module.exports = router;
