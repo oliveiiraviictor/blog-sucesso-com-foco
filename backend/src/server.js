@@ -25,6 +25,11 @@ app.use('/api', articleRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api/users', userRoutes);
 
-app.listen(PORT, () => {
-  console.log(`✅ Servidor rodando na porta ${PORT}`);
-});
+module.exports = app;
+
+// Só inicia o servidor se for executado diretamente (não importado em testes)
+if (require.main === module && process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`✅ Servidor rodando na porta ${PORT}`);
+  });
+}
