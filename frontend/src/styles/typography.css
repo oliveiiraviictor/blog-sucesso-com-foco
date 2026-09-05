@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Display Large */
+.display-lg {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+}
+
+/* Headline Large */
+.headline-lg {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+}
+
+/* Headline Large Mobile */
+.headline-lg-mobile {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.01em;
+}
+
+/* Headline Medium */
+.headline-md {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+/* Body Large */
+.body-lg {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+/* Body Medium */
+.body-md {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+/* Label Medium */
+.label-md {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headline-lg {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  .display-lg {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}

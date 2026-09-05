@@ -1,16 +1,17 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Iniciado o projeto com as bases do React + Vite com ajuda do ESlint.
 
-Currently, two official plugins are available:
+## Detalhando o inicio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ - Criando todas as pastas que irei usar no projeto : 
+    - Components
+    - Context
+    - Pages
+    - Services
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ - Criando os services para esse site em especifico:
+    - API: Criada para armazenar o token de login e saber se ele está vazio ou preenchido e pegando os dados do localStorage
+    - AuthService: Criada para fazer as autenticações e serviços do usuario, login, registro e logout
+    - ArticleService: Criada com o intuito de fazer o consumo dos endPoints de article do backend;
+    - CategoryService: Criada com o intuito de fazer o consumo dos endPoints de categoria do backend;
