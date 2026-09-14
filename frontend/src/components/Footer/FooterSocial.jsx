@@ -1,26 +1,23 @@
-import mailIcon from "../../assets/email.svg";
-import instaIcon from "../../assets/instagram.svg";
-import tiktokIcon from "../../assets/tiktok.svg";
-import facebookIcon from "../../assets/facebook.svg";
-import xIcon from "../../assets/x.svg";
+import { MdEmail } from 'react-icons/md';
+import { FaInstagram, FaTiktok, FaFacebook, FaXTwitter } from 'react-icons/fa6';
 
 export default function FooterSocial() {
     return (
         <div className="footer-social">
             <a href="mailto:diniz.vito@gmail.com">
-                <img src={mailIcon} alt="Email" />
+                <MdEmail size={24} />
             </a>
             <a href="#" title="Instagram">
-                <img src={instaIcon} alt="Instagram" />
+                <FaInstagram size={24}/>
             </a>
             <a href="#" title="TikTok">
-                <img src={tiktokIcon} alt="TikTok" />
+                <FaTiktok size={24} />
             </a>
             <a href="#" title="Facebook">
-                <img src={facebookIcon} alt="Facebook" />
+                <FaFacebook size={24} />
             </a>
             <a href="#" title="X">
-                <img src={xIcon} alt="X" />
+                <FaXTwitter size={24} />
             </a>
         </div>
     );
