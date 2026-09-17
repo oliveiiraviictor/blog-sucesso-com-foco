@@ -15,8 +15,8 @@ export default function ArticleCard({
                 <h2>{titulo}</h2>
                 <p>{descricao}</p>
                 <div className="article-meta">
-                    <span>{categoria}</span>
-                    <span>{autor}</span>
+                    <span>{categoria.nome}</span>
+                    <span>{autor.nome}</span>
                     <span>{data}</span>
                     <span>{tempoDeLeitura} min de leitura</span>
                 </div>
