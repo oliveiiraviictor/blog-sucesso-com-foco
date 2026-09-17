@@ -1,0 +1,64 @@
+.header {
+    /*Posição do header para ficar fixa no top em toda a página*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /*Cor do background*/
+    background-color: var(--surface-container-lowest);
+
+    /*Sombreamento do header*/
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    height: 70px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-gutter);
+    height: 100%;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover; /* Para manter a proporção */
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm); /* Espaço entre imagem e texto */
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none; /* Remove os pontos */
+  gap: var(--spacing-lg); /* Espaço entre links */
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--on-surface);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+  color: var(--primary); /* Muda cor ao passar mouse */
+}
+
+body {
+  padding-top: 70px; /* Mesmo valor da altura do header */
+}

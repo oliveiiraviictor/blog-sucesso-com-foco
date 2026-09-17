@@ -1,6 +1,7 @@
 import Logo from './Logo';
 import Navigation from './Navigation';
 import SearchBar from './SearchBar';
+import './Header.css';
 
 export default function Header() {
     return (

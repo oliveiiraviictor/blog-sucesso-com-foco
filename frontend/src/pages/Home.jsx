@@ -36,7 +36,7 @@ export default function Home() {
         <>
             <Header />
             <Hero />
-            <main className="home-content">
+            <main className="home-content container">
                 <section className="articles-section">
                     <h2>Artigos Recentes</h2>
                     <div className="articles-grid">
