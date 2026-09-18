@@ -38,7 +38,7 @@ export default function Home() {
             <Hero />
             <main className="home-content container">
                 <section className="articles-section">
-                    <h2>Artigos Recentes</h2>
+                    <h2 className="mt-md mb-md">Artigos Recentes</h2>
                     <div className="articles-grid">
                         {articles.map((article) => (
                             <ArticleCard 

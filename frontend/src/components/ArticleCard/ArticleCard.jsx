@@ -1,3 +1,5 @@
+import './ArticleCard.css';
+
 export default function ArticleCard({
     id,
     titulo,
