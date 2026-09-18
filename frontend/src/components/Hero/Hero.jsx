@@ -1,3 +1,5 @@
+import './Hero.css';
+
 export default function Hero() {
     const handleSearch = (e) => {
         e.preventDefault();

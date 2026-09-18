@@ -10,7 +10,6 @@ export default function Header() {
                 <Logo />
                 <Navigation />
                 <SearchBar />
-                <button className="btn-subscribe">Subscribe</button>
             </div>
         </header>
     );
