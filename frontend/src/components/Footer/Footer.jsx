@@ -6,20 +6,23 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
+        
+        {/* Lado Esquerdo: Logo, Descrição e Copyright empilhados */}
         <div className="footer-info">
-          <div className="site-name">Sucesso Com Foco</div>
-          <p>Potencializando carreiras através da produtividade e foco.</p>
+          <p className="footer-description">
+            O <b>Sucesso com Foco</b> é o seu portal definitivo para desenvolvimento pessoal, produtividade e alta performance. Publicamos artigos, estratégias práticas e guias detalhados para ajudar você a alcançar seus objetivos, cultivar disciplina e construir uma jornada de sucesso com propósito e clareza.
+          </p>
+          <div className="footer-copyright">
+            <p>&copy; {new Date().getFullYear()} Sucesso com Foco. Todos os direitos reservados.</p>
+          </div>
         </div>
 
-        <div className="footer-copyright">
-            <p>© {new Date().getFullYear()} Sucesso Com Foco. All rights reserved.</p>
-        </div>
-
+        {/* Lado Direito: Links em cima e Redes Sociais embaixo */}
         <div className="footer-right">
           <FooterLinks />
-          <FooterSocial />
+          <FooterSocialLinks />
         </div>
-
+        
       </div>
     </footer>
   );

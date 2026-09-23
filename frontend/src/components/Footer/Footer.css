@@ -1,76 +1,65 @@
 /* Footer.css */
 .footer {
-  background-color: #242c3d; /* Ajustado para um tom mais próximo da imagem */
-  color: #e8eefc;
-  padding: 40px 0;
+  background-color: var(--inverse-surface);
+  color: var(--inverse-on-surface);
+  padding: var(--spacing-2xl) 0;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Centraliza verticalmente o lado esquerdo com o direito */
-  max-width: 1200px;
+  align-items: flex-start;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-gutter);
+  gap: var(--spacing-xl);
 }
 
+/* Lado Esquerdo */
 .footer-info {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  text-align: left;
+  gap: var(--spacing-md);
+  max-width: 450px;
 }
 
-.site-name {
-  font-size: 20px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.site-description {
-  margin: 0;
-  font-size: 15px;
-}
-
-.footer-copyright {
-  color: #94a3b8; /* Tom mais claro e acinzentado conforme a imagem */
-  font-size: 13px;
-  margin-top: 12px;
-}
-
+.footer-description, 
 .footer-copyright p {
+  font-size: 13px; /* Letras menores conforme solicitado */
+  color: var(--outline-variant);
+  line-height: 1.5;
   margin: 0;
 }
 
+/* Lado Direito */
 .footer-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Empurra os links e botões para a extrema direita */
-  gap: 16px;
+  align-items: flex-end;
+  gap: var(--spacing-lg);
 }
 
-/* Certifique-se de que o componente <FooterLinks /> renderiza uma div com esta classe */
+/* Os componentes FooterLinks e FooterSocialLinks devem renderizar essas classes */
 .footer-links {
   display: flex;
-  flex-direction: row; /* Coloca os links lado a lado */
-  gap: 24px;
+  gap: var(--spacing-md);
 }
 
 .footer-links a {
-  color: #e8eefc;
+  color: var(--inverse-on-surface);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+  color: var(--primary-fixed-dim);
 }
 
-/* Certifique-se de que o componente <FooterSocial /> renderiza uma div com esta classe */
 .footer-social {
   display: flex;
-  flex-direction: row; /* Coloca os ícones lado a lado */
-  gap: 12px;
+  gap: var(--spacing-sm);
 }
 
 .footer-social a {
@@ -79,13 +68,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #4a5568; /* Borda sutil visível na imagem */
-  border-radius: 8px;
-  color: #fff;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-md);
+  color: var(--inverse-on-surface);
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
 .footer-social a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
