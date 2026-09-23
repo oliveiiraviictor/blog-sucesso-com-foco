@@ -4,3 +4,4 @@ export { default as RelatedPosts } from './RelatedPosts';
 export { default as AdSpace } from './AdSpace';
 export { default as NewsletterCard } from './NewsletterCard';
 export { default as SideBar } from './SideBar';
+export { default as PopularPosts } from './PopularPosts';
