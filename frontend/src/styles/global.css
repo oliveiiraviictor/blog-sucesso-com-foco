@@ -124,6 +124,21 @@ select:focus {
   padding: 0 var(--container-gutter);
 }
 
+.home-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-3xl);
+    margin-top: var(--spacing-2xl);
+    align-items: start;
+}
+
+.section-title {
+    font-size: 28px;
+    color: var(--on-surface);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container {

@@ -20,7 +20,7 @@ export default function Footer() {
         {/* Lado Direito: Links em cima e Redes Sociais embaixo */}
         <div className="footer-right">
           <FooterLinks />
-          <FooterSocialLinks />
+          <FooterSocial />
         </div>
         
       </div>

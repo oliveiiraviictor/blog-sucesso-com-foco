@@ -1,0 +1,122 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+/* --- CARD DO AUTOR --- */
+.author-card {
+    background-color: var(--surface-container-low);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid var(--surface-container-high);
+    
+    /* Adicione esta linha para deixar o movimento suave */
+    transition: all 0.3s ease;
+}
+
+/* Adicione este bloco para o efeito ao passar o rato */
+.author-card:hover {
+    transform: translateY(-6px); /* Faz o card flutuar 6px para cima */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Cria a sombra abaixo do card */
+    border-color: var(--primary-fixed-dim); /* Opcional: realça levemente a borda */
+}
+
+/* Correção da foto gigante */
+.author-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto var(--spacing-md);
+}
+
+.author-card h3 { 
+    font-size: 18px; 
+    margin-bottom: 4px; 
+}
+
+.author-profession { 
+    font-size: 14px; 
+    color: var(--outline); 
+    margin-bottom: var(--spacing-md); 
+}
+
+.author-card p { 
+    font-size: 14px; 
+    color: var(--on-surface-variant); 
+    line-height: 1.5; 
+}
+
+/* --- CARD DA NEWSLETTER --- */
+.newsletter-card {
+    background-color: var(--inverse-surface); /* Fundo escuro igual ao Figma */
+    color: var(--inverse-on-surface);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+
+    transition: all 0.3s ease;
+}
+
+.newsletter-card:hover {
+    transform: translateY(-6px); /* Faz o card flutuar 6px para cima */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Cria a sombra abaixo do card */
+    border-color: var(--primary-fixed-dim); /* Opcional: realça levemente a borda */
+}
+
+.newsletter-card h3 { 
+    font-size: 18px; 
+    margin-bottom: var(--spacing-sm); 
+    color: #fff; 
+}
+
+.newsletter-card p { 
+    font-size: 13px; 
+    margin-bottom: var(--spacing-md); 
+    opacity: 0.8; 
+}
+
+.newsletter-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--spacing-sm); 
+}
+
+.newsletter-form input { 
+    padding: 12px; 
+    border-radius: var(--radius-sm); 
+    border: none; 
+}
+
+.newsletter-form button {
+    background-color: var(--secondary-container); /* Laranja */
+    color: white;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* --- ESPAÇO DE ANÚNCIO --- */
+.ad-space {
+    border: 1px solid var(--outline-variant);
+    background-color: var(--surface-container-lowest);
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--outline-variant);
+    border-radius: var(--radius-sm);
+
+    transition: all 0.3s ease;
+}
+
+.ad-space:hover {
+    transform: translateY(-6px); /* Faz o card flutuar 6px para cima */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Cria a sombra abaixo do card */
+    border-color: var(--primary-fixed-dim); /* Opcional: realça levemente a borda */
+}

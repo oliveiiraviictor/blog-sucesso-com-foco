@@ -1,40 +1,70 @@
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.article-card {
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.article-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transform: translateY(-4px);
-}
-
-.article-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.article-content {
-  padding: var(--spacing-md);
+/* Layout em lista para a coluna principal */
+.articles-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-md);
 }
 
-.article-meta {
+/* Transforma o ArticleCard em horizontal */
+.articles-list .article-card {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  font-size: 14px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  border: 1px solid transparent; /* Prepara a borda para o hover invisível */
+  padding: var(--spacing-md); /* Dá um respiro para a sombra e o fundo */
+  background: transparent;
+  border-radius: var(--radius-lg);
+  
+  /* O segredo da suavidade está aqui */
+  transition: all 0.3s ease; 
+}
+
+/* O efeito ao passar o mouse */
+.articles-list .article-card:hover {
+  transform: translateY(-6px); /* Flutua 6px para cima */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  background-color: var(--surface-container-lowest); /* Fundo claro para a sombra destacar */
+  border-color: var(--surface-container-high); /* Borda muito sutil */
+}
+
+.articles-list .article-card img {
+  width: 280px;
+  height: 180px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0; /* Impede a imagem de esmagar */
+}
+
+.articles-list .article-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+}
+
+.articles-list .article-content h2 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 4px 0;
+  color: var(--on-surface);
+}
+
+.articles-list .article-content p {
   color: var(--on-surface-variant);
+  font-size: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a descrição a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.articles-list .article-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: 13px;
+  color: var(--outline);
+  margin-top: var(--spacing-sm);
 }

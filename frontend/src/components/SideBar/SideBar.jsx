@@ -3,6 +3,8 @@ import NewsletterCard from './NewsLetterCard';
 import RelatedPosts from './RelatedPosts';
 import AdSpace from './AdSpace';
 
+import './SideBar.css';
+
 export default function SideBar({ author, posts }) {
     return (
         <aside className="sidebar">
@@ -14,7 +16,7 @@ export default function SideBar({ author, posts }) {
             />
             <NewsletterCard />
             <AdSpace />
-            <RelatedPosts posts={posts} />            
+            <RelatedPosts title="Artigos Recentes" posts={posts} />            
         </aside>
     )
 }

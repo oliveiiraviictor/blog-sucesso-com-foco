@@ -32,30 +32,34 @@ export default function Home() {
     if (loading) return <p>Carregando artigos...</p>;
     if (error) return <p>Erro ao carregar artigos: {error}</p>;
 
+    const popularArticles = [...articles].sort((a, b) => b.visualizacoes - a.visualizacoes).slice(0, 3);
+    const recentArticles = [...articles].reverse().slice(0, 5);
+
     return (
         <>
             <Header />
             <Hero />
             <main className="home-content container">
                 <section className="articles-section">
-                    <h2 className="mt-md mb-md">Artigos Recentes</h2>
-                    <div className="articles-grid">
-                        {articles.map((article) => (
-                            <ArticleCard 
-                                key={article.id}
-                                id ={article.id}
-                                titulo = {article.titulo}
-                                descricao = {article.descricao}
-                                imagemCapa = {article.imagemCapa}
-                                categoria = {article.categoria.nome}
-                                autor = {article.autor.nome}
-                                data = {new Date(article.createdAt).toLocaleDateString('pt-BR')}
-                                tempoDeLeitura = {5}
-
-                            />
-                        ))}
+                    <h2>Artigos Recentes</h2>
+                    {/* Trocamos grid para list para o layout horizontal */}
+                    <div className="articles-list"> 
+                    {recentArticles.map((article) => (
+                        <ArticleCard
+                            key={article.id}
+                            id={article.id}
+                            titulo={article.titulo}
+                            descricao={article.descricao}
+                            imagemCapa={article.imagemCapa}
+                            categoria={article.categoria.nome}
+                            autor={article.autor.nome}
+                            data={new Date(article.createdAt).toLocaleDateString('pt-BR')}
+                            tempoDeLeitura={5}
+                        />
+                    ))}
                     </div>
                 </section>
+
                 <SideBar 
                     author={{
                         nome: "Victor Oliveira",
@@ -63,12 +67,12 @@ export default function Home() {
                         descricao: "Realizando o desenvolvimento web para praticar e se torna um desenvolvedor melhor",
                         foto: fotoPerfil
                     }}
-                    posts={articles.slice(0, 3).map(post => ({
+                    posts={popularArticles.map(post => ({
                         id: post.id,
                         title: post.titulo,
                         description: post.descricao,
                         category: post.categoria.nome,
-                        readTime: post.tempoDeLeitura
+                        readTime: post.tempoDeLeitura || 5
                     }))}
                 />
             </main>
