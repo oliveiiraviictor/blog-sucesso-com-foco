@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import authService from '../services/authService';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import authService from '../../services/authService';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 import './Login.css';
 
 export default function Login() {
