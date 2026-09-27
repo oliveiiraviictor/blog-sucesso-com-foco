@@ -1,0 +1,87 @@
+.register-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px - 200px);
+  padding: var(--spacing-4xl) var(--spacing-md);
+}
+
+.register-card {
+  background-color: var(--surface-container-lowest);
+  width: 100%;
+  max-width: 450px;
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.register-header h2 {
+  font-size: 24px;
+  color: var(--on-surface);
+  margin-bottom: var(--spacing-xs);
+}
+
+.register-header p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.form-group input {
+  width: 100%;
+}
+
+.btn-action {
+  margin-top: var(--spacing-sm);
+  width: 100%;
+  text-align: center;
+}
+
+.btn-action:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: var(--error-container);
+  color: var(--on-error-container);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid rgba(186, 26, 26, 0.2);
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+.register-footer a {
+  font-weight: 600;
+}
