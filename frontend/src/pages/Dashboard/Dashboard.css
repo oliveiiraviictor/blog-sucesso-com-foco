@@ -1,0 +1,99 @@
+.dashboard-container {
+  padding: var(--spacing-3xl) var(--spacing-md);
+  max-width: 800px; /* Mantém o formulário num tamanho legível */
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+}
+
+.dashboard-header h2 {
+  font-size: 32px;
+  color: var(--on-surface);
+  margin-bottom: var(--spacing-xs);
+}
+
+.dashboard-header p {
+  color: var(--on-surface-variant);
+  font-size: 16px;
+}
+
+.dashboard-card {
+  background-color: var(--surface-container-lowest);
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--outline-variant);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.flex-2 { flex: 2; min-width: 200px; }
+.flex-1 { flex: 1; min-width: 120px; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--on-surface);
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--outline);
+  background-color: var(--surface-container-lowest);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--on-surface);
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.dashboard-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--surface-container-high);
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #c3e6cb;
+}
