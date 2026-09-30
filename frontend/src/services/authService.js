@@ -33,8 +33,17 @@ const authService = {
     getToken: () => localStorage.getItem('token'),
 
     getUser: () => {
-        const user = localStorage.getItem('user');
-        return user ? JSON.parse(user) : null;
+        try {
+            const user = localStorage.getItem('user');
+
+            if (!user || user == 'undefined') {
+                return null;
+            }
+
+            return JSON.parse(user);
+        } catch(error) {
+            return null;
+        }
     }
 };
 

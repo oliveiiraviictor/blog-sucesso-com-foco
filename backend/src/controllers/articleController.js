@@ -40,7 +40,7 @@ async function getArticleById(req, res) {
 
 async function createArticle(req, res) {
     try {
-        const { titulo, conteudo, imagemCapa, autorId, categoriaId } = req.body;
+        const { titulo, conteudo, imagemCapa, autorId, categoriaId, tempoDeLeitura, descricao } = req.body;
 
         // Validar campos obrigatórios
         if (!titulo || !conteudo || !autorId || !categoriaId) {
@@ -54,7 +54,9 @@ async function createArticle(req, res) {
                 imagemCapa: imagemCapa || null,
                 autorId: parseInt(autorId),
                 categoriaId: parseInt(categoriaId),
-                status: 'rascunho'
+                status: 'rascunho',
+                descricao,
+                tempoDeLeitura: tempoDeLeitura ? parseInt(tempoDeLeitura) : null
             },
             include: {
                 autor: true,
@@ -72,7 +74,7 @@ async function createArticle(req, res) {
 async function updateArticle(req, res) {
     try {
         const { id } = req.params;
-        const { titulo, conteudo, imagemCapa, status, categoriaId } = req.body;
+        const { titulo, conteudo, imagemCapa, status, categoriaId, tempoDeLeitura, descricao } = req.body;
 
         const article = await prisma.article.update({
             where: { id: parseInt(id) },
@@ -81,7 +83,9 @@ async function updateArticle(req, res) {
                 conteudo: conteudo || undefined,
                 imagemCapa: imagemCapa || undefined,
                 status: status || undefined,
-                categoriaId: categoriaId ? parseInt(categoriaId) : undefined
+                categoriaId: categoriaId ? parseInt(categoriaId) : undefined,
+                tempoDeLeitura: tempoDeLeitura ? parseInt(tempoDeLeitura) : undefined,
+                descricao: descricao || undefined
             },
             include: {
                 autor: true,

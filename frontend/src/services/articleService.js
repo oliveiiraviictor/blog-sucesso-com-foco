@@ -12,13 +12,15 @@ const articleService = {
         return response.data;
     },
 
-    create: async (titulo, conteudo, imagemCapa, autorId, categoriaId) => {
+    create: async (titulo, conteudo, imagemCapa, autorId, categoriaId, descricao, tempoDeLeitura) => {
         const response = await api.post('/articles', {
             titulo,
             conteudo,
             imagemCapa,
             autorId,
-            categoriaId
+            categoriaId,
+            descricao,
+            tempoDeLeitura
         });
         return response.data;
     },

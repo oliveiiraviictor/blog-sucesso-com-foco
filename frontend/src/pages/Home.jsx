@@ -54,7 +54,7 @@ export default function Home() {
                             categoria={article.categoria.nome}
                             autor={article.autor.nome}
                             data={new Date(article.createdAt).toLocaleDateString('pt-BR')}
-                            tempoDeLeitura={5}
+                            tempoDeLeitura={article.tempoDeLeitura}
                         />
                     ))}
                     </div>

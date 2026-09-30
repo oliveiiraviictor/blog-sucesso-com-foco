@@ -22,7 +22,7 @@ export default function Login() {
       // Chama o serviço que você configurou para bater na API e salvar o token
       await authService.login(email, senha);
       // Redireciona o usuário para a página inicial
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       // Captura a mensagem de erro do backend ou exibe uma mensagem genérica
       setError(err.response?.data?.error || 'Erro ao realizar login. Verifique suas credenciais.');

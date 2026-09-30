@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import articleService from '../../services/articleService';
+import categoryService from '../../services/categoryService';
+import authService from '../../services/authService';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -17,9 +19,28 @@ export default function Dashboard() {
     tempoDeLeitura: ''
   });
   
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const data = await categoryService.getAll();
+        setCategories(data);
+        
+        if (data && data.length > 0) {
+          setFormData(prev => ({ ...prev, categoriaId: data[0].id }));
+        }
+      } catch (err) {
+        console.error("Erro ao carregar as categorias:", err);
+        setError("Não foi possível carregar as categorias.");
+      }
+    };
+
+    fetchCategorias();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,34 +54,41 @@ export default function Dashboard() {
     setSuccess(false);
 
     try {
-      // 1. Vai buscar o utilizador que está logado para usar como autorId
-      const userStorage = JSON.parse(localStorage.getItem('user'));
-      
-      // Se não houver utilizador (em testes), usamos o ID 1 como segurança
-      const autorId = userStorage && userStorage.id ? userStorage.id : 1; 
+      // 1. Buscamos o usuário usando o seu serviço (que agora sabemos que tem o ID 3!)
+      const usuarioLogado = authService.getUser();
 
-      // 2. Chama o serviço passando os dados exatamente na ordem que definiu
+      // 2. Trava de segurança
+      if (!usuarioLogado || !usuarioLogado.id) {
+        setError("Sessão inválida. Por favor, faça login novamente para publicar.");
+        setLoading(false);
+        return;
+      }
+
+      // 3. Criamos o artigo passando o ID real (usuarioLogado.id)
       await articleService.create(
         formData.titulo,
         formData.conteudo,
         formData.imagemCapa,
-        autorId,
-        parseInt(formData.categoriaId) // Garante que o ID da categoria vai como número
+        usuarioLogado.id,
+        parseInt(formData.categoriaId),
+        formData.descricao,
+        parseInt(formData.tempoDeLeitura)
       );
       
       setSuccess(true);
       
-      // 3. Limpa o formulário
+      // 4. Limpa o formulário
       setFormData({
         titulo: '',
         descricao: '',
         conteudo: '',
         imagemCapa: '',
-        categoriaId: '1',
+        categoriaId: categorias.length > 0 ? categorias[0].id : '',
         tempoDeLeitura: ''
       });
       
     } catch (err) {
+      console.error("Erro completo:", err);
       setError(err.response?.data?.error || 'Erro ao publicar o artigo.');
     } finally {
       setLoading(false);
@@ -142,11 +170,12 @@ export default function Dashboard() {
                 value={formData.categoriaId} 
                 onChange={handleChange}
               >
-                {/* Aqui futuramente podemos puxar dinamicamente do banco */}
-                <option value="1">Produtividade</option>
-                <option value="2">Carreira</option>
-                <option value="3">Mentalidade</option>
-                <option value="4">Negócios</option>
+                <option value="" disabled>Selecione uma categoria</option>
+                {categories.map(category => (
+                  <option key={category.id} value={category.id}>
+                    {category.nome}
+                  </option>
+                ))}
               </select>
             </div>
 
