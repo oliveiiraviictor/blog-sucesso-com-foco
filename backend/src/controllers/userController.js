@@ -5,10 +5,16 @@ const jwt = require('jsonwebtoken');
 
 async function registerUser(req, res) {
     try {
-        const { nome, email, senha } = req.body;
+        const { nome, email, senha, codigoConvite } = req.body;
 
-        if( !nome || !email || !senha ) {
+        if( !nome || !email || !senha || !codigoConvite ) {
             return res.status(400).json({ error: 'Verifique os campos em branco' });
+        }
+
+        const secretCode = process.env.INVITE_CODE;
+
+        if (codigoConvite !== secretCode) {
+            return res.status(400).json({ error: 'Código de convite inválido' });
         }
 
         const existingEmail = await prisma.user.findUnique({

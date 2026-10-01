@@ -83,9 +83,11 @@ export default function Dashboard() {
         descricao: '',
         conteudo: '',
         imagemCapa: '',
-        categoriaId: categorias.length > 0 ? categorias[0].id : '',
+        categoriaId: '',
         tempoDeLeitura: ''
       });
+
+      navigate('/');
       
     } catch (err) {
       console.error("Erro completo:", err);

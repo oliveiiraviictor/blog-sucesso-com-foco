@@ -12,6 +12,7 @@ export default function Register() {
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [codigoConvite, setCodigoConvite] = useState(''); 
   
   const navigate = useNavigate();
 
@@ -28,8 +29,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      await authService.register(nome, email, senha);
-      // Após registrar com sucesso, envia o usuário para a tela de login
+      await authService.register(nome, email, senha, codigoConvite); 
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.error || 'Erro ao criar conta. Verifique os dados e tente novamente.');
@@ -99,7 +99,17 @@ export default function Register() {
               />
             </div>
 
-            {/* O campo do código de convite entrará aqui no futuro */}
+            <div className="form-group">
+              <label htmlFor="codigoConvite">Código de Convite</label>
+              <input 
+                  type="text" // Pode ser 'text' se preferir que fique visível
+                  id="codigoConvite" 
+                  value={codigoConvite}
+                  onChange={(e) => setCodigoConvite(e.target.value)}
+                  placeholder="Insira o código secreto"
+                  required 
+              />
+            </div>
 
             <button type="submit" className="btn-action" disabled={loading}>
               {loading ? 'Criando conta...' : 'Registrar'}
