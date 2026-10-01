@@ -1,0 +1,309 @@
+.admin-container {
+  display: flex;
+  background-color: #f8fafc; /* Fundo claro da página */
+  min-height: 100vh;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 32px;
+  background-color: #f8fafc;
+  text-align: left;
+  width: 100%;
+}
+
+/* Cabeçalho */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.section-subtitle {
+  color: #3b82f6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Botões */
+.header-actions { display: flex; gap: 12px; }
+
+.btn-primary {
+  background-color: #0052ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* KPIs */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background: white;
+  text-align: left;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.kpi-title {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.kpi-value span { font-size: 14px; color: #64748b; font-weight: 500; }
+
+.kpi-trend { font-size: 13px; font-weight: 600; }
+.kpi-trend.positive { color: #10b981; }
+
+/* Tabela e Container */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  overflow-x: auto; /* Garante que a tabela não quebra o ecrã em monitores menores */
+}
+
+/* Estrutura Base da Tabela */
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  text-align: left;
+  table-layout: fixed; /* Força a tabela a respeitar as larguras das colunas */
+}
+
+/* Largura das Colunas */
+.articles-table th:nth-child(1) { width: 40%; } /* Artigo (reduzido de 45%) */
+.articles-table th:nth-child(2) { width: 15%; } /* Autor (reduzido de 20%) */
+.articles-table th:nth-child(3) { width: 15%; } /* Status */
+.articles-table th:nth-child(4) { width: 20%; } /* Desempenho */
+.articles-table th:nth-child(5) { width: 10%; text-align: center; } /* Desempenho */
+
+.articles-table th {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 16px 16px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.articles-table td {
+  padding: 20px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle; /* Alinha tudo ao centro verticalmente */
+}
+
+/* A grande correção: Imagem do Artigo */
+.article-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.thumb {
+  width: 72px;        /* Fixa a largura */
+  height: 54px;       /* Fixa a altura */
+  object-fit: cover;  /* Corta a imagem sem distorcer */
+  border-radius: 6px;
+  flex-shrink: 0;     /* Impede que a imagem encolha */
+  background-color: #f1f5f9; /* Fundo de fallback caso a imagem falhe */
+}
+
+/* Textos do Artigo */
+.article-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden; /* Evita que títulos gigantes quebrem o layout */
+}
+
+.category-badge {
+  color: #3b82f6;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-title {
+  font-size: 14px;
+  color: #0f172a;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Coloca "..." se o título for muito grande */
+}
+
+/* A correção dos Avatares e Autores */
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 32px;
+  height: 32px;
+  background: #0052ff;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0; /* Impede o avatar de ficar ovalado */
+}
+
+.author-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Badges de Status */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+.status-badge.published { background: #dcfce7; color: #166534; }
+.status-badge.draft { background: #f1f5f9; color: #475569; }
+
+/* Desempenho */
+.performance-info {
+  font-size: 13px;
+  color: #64748b;
+}
+.performance-info strong {
+  color: #0f172a;
+  font-size: 14px;
+}
+
+/* Coluna de Ações */
+.articles-table th:nth-child(5) { width: 10%; text-align: center; }
+
+.table-actions {
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap; /* Impede que os botões caiam para linhas diferentes */
+}
+
+/* Substitui o "gap" do flexbox para dar espaço entre os botões */
+.table-actions .btn-icon {
+  margin: 0 4px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  opacity: 0.6;
+}
+
+.btn-icon:hover {
+  opacity: 1;
+  background-color: #f1f5f9;
+}
+
+.btn-icon.delete:hover {
+  background-color: #fee2e2; /* Fundo avermelhado ao passar o mouse */
+}
+
+.table-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 24px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding-bottom: 16px;
+  margin-bottom: -17px; /* Faz a aba encostar na borda de baixo */
+}
+
+.tab.active {
+  color: #0052ff;
+  border-bottom: 2px solid #0052ff;
+}
+
+.filter-inputs {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-inputs input, .filter-inputs select {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+}

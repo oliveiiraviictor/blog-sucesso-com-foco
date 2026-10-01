@@ -1,5 +1,4 @@
 import AuthorCard from './AuthorCard';
-import NewsletterCard from './NewsLetterCard';
 import RelatedPosts from './RelatedPosts';
 import AdSpace from './AdSpace';
 
@@ -14,7 +13,6 @@ export default function SideBar({ author, posts }) {
                 descricao={author.descricao}
                 foto={author.foto}
             />
-            <NewsletterCard />
             <AdSpace />
             <RelatedPosts title="Artigos Recentes" posts={posts} />            
         </aside>
